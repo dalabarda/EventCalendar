@@ -1,5 +1,3 @@
-# Advertima exercise:
-
 
 This repository is the development my first Angular2 project to showcase the technical skills I've learning throughout between **06.03.2017** and **13.03.2017** by developing a simple front-end application using some important Angular2 functionalities. In this project, I am going to develop it using a Windows 10 machine andthe following technologies: 
 
