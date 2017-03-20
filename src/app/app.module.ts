@@ -13,6 +13,9 @@ import {
     EventListResolver,
     CreateSessionComponent,
     SessionListComponent,
+    UpvoteComponent,
+    LocationValidator,
+    VoterService,
     DurationPipe
 } from './events/index'
 
@@ -31,7 +34,7 @@ import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 
 declare let toastr : Toastr
-declare let JQuery : Object // used to display the search result on the screen
+declare let jQuery : Object // used to display the search result on the screen
 
 @NgModule({
   imports:      [ 
@@ -50,10 +53,12 @@ declare let JQuery : Object // used to display the search result on the screen
       Error404Component,
       CreateSessionComponent,
       SessionListComponent,
+      LocationValidator,
       DurationPipe,
       CollapsibleWellComponent,
       ModalTriggerDirective,
-      SimpleModalComponent
+      SimpleModalComponent,
+      UpvoteComponent
   	],
   providers: [
       EventService, 
@@ -73,10 +78,11 @@ declare let JQuery : Object // used to display the search result on the screen
 
       {
         provide: JQ_TOKEN,
-        useValue: JQuery
+        useValue: jQuery
       },
       EventRouteActivator,
       EventListResolver,
+      VoterService,
       AuthService ,
       {     // the mechanism to ask before an important action on the website.
         provide: 'canDeactivateCreateEvent', // this is requested...       -> this provider is just a string. if somebody else register a service using that same string, they would conflict with each other. 

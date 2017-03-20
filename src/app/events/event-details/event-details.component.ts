@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core'
 import { EventService } from '../shared/event.service'
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Params } from '@angular/router'
 import { FormControl, FormGroup, Validators } from '@angular/forms' // anular forms items we needed to create a reactive form.
 import { Router } from '@angular/router'
 
@@ -31,8 +31,12 @@ export class EventDetailsComponent implements OnInit{
 	}
 
 	ngOnInit() {
-		this.event = this.eventService.getEvent(+this.route.snapshot.params['id']) // pulling parameters off of the URL using the activated route service.
-	
+		this.route.params.forEach((params: Params) => {this.event = this.eventService.getEvent(+params['id']);  // this new code resets the event property.
+		this.addMode = false;
+		})
+		// this.event = this.eventService.getEvent(+this.route.snapshot.params['id']) // pulling parameters off of the URL using the activated route service.
+		
+
 		// setting up each of our FormControls for each of our fields in here.
 		this.group = new FormControl('', Validators.required)
 
