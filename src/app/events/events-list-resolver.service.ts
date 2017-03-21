@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { Resolve } from '@angular/router'
 import { EventService } from './shared/event.service'
 
+
 /*
 This is an injectable service that implements resolve. 
 In a resolve method, we will typically make an asynchronous 
@@ -16,7 +17,7 @@ export class EventListResolver implements Resolve<any> {
   }
 
   resolve() {
-    return this.eventService.getEvents().map(events => events)
+    return this.eventService.getEvents()
   }
 }
 

@@ -1,6 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { HttpModule } from '@angular/http' // to interact with data stored on the server
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // 
 
 import {
@@ -33,12 +34,13 @@ import { appRoutes } from './routes'
 import { Error404Component } from './errors/404.component'
 import { AuthService } from './user/auth.service'
 
-declare let toastr : Toastr
+declare let toastr : Toastr  
 declare let jQuery : Object // used to display the search result on the screen
 
 @NgModule({
   imports:      [ 
       BrowserModule,
+      HttpModule, // we are going to convert our data storage to the server piece by piece.
       FormsModule,        // template-based forms (diving deeper)
       ReactiveFormsModule, // template-based forms (diving deeper)
       RouterModule.forRoot(appRoutes) 
