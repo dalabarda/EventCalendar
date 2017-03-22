@@ -14,8 +14,8 @@ export class EventService {
 
   getEvents():Observable<IEvent[]> {
     return this.http.get("/api/events").map((response: Response) => {
-      return <IEvent[]>response.json();
-    }).catch(this.handleError); 
+        return <IEvent[]>response.json();
+    }).catch(this.handleError);
   }
 
   getEvent(id:number):IEvent {
@@ -56,6 +56,7 @@ export class EventService {
     }, 100);
     return emitter;
   }
+  
   private handleError(error: Response){
     return Observable.throw(error.statusText); // handling errors with Observables
   }
